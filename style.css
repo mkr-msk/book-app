@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: max(70%, 800px);
+}
+
+.item-container {
+    width: 20ch;
+    height: 5ch;
+    margin: 1rem;
+    padding: 1ch 2ch;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.item-id {
+    font-size: 0.5rem;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: white;
+    background-color: blue;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(127, 127, 127);
+}
+
+.item-author {
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: black;
+}
