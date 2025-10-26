@@ -1,5 +1,7 @@
 const myLibrary = [];
-let bookContainer = document.querySelector('.books')
+let bookContainer = document.querySelector('.books');
+let showAllButton = document.querySelector('#show-all');
+let newBookButton = document.querySelector('#new-book');
 
 function Book(name, author) {
     this.id = crypto.randomUUID();
@@ -37,11 +39,13 @@ function getAllBooks() {
     }
 }
 
+showAllButton.addEventListener('click', () => getAllBooks());
+
 function showForm() {
     bookContainer.innerHTML = '';
 
-    let form = document.createElement('form');
-    formContainer.className = 'form-container';
+    let form = document.createElement('div');
+    form.className = 'form-container';
     bookContainer.appendChild(form);
 
     let labelName = document.createElement('label');
@@ -64,8 +68,19 @@ function showForm() {
     inputAuthor.type = 'text';
     form.appendChild(inputAuthor);
 
-    let submitButton = document.createElement('button');
-    submitButton.type = 'submit';
-    submitButton.textContent = 'Add';
-    form.appendChild(submitButton);
+    let addButton = document.createElement('button');
+    addButton.type = 'button';
+    addButton.textContent = 'Add';
+    form.appendChild(addButton);
+
+    addButton.addEventListener('click', () => {
+        if (inputName.value && inputAuthor.value) {
+            addBookToLibrary(inputName.value, inputAuthor.value);
+            inputName.value = ''; 
+            inputAuthor.value = '';
+            alert('Книга сохранена');
+        }
+    });
 }
+
+newBookButton.addEventListener('click', () => showForm());
